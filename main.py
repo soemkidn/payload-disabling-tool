@@ -55,4 +55,4 @@ def main(input_file, output_file):
 
 
 if __name__ == "__main__":
-    main('payload.exe', 'blocked.exe')
+    main('payload.exe', 'blocked_payload.exe')

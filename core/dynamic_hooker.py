@@ -1,22 +1,13 @@
 import frida
 
-from core import sandbox
-
 
 class DynamicHooker:
     """对应'Frida script injection'"""
 
-    def __init__(self, sandbox):
-        self.sandbox = sandbox
-        self.pid = self._get_container_pid()
-
-    def _get_container_pid(self):
-        """获取容器内进程PID"""
-        top_output = self.sandbox.container.top()
-        return top_output["Processes"][0][1]  # 提取第一个进程PID
+    def __init__(self, target_process):
+        self.session = frida.attach(target_process)
 
     def inject(self):
-        self.session = frida.attach(self.pid)
         """注入挂钩脚本"""
         script = """
         Interceptor.attach(Module.getExportByName('ws2_32.dll', 'connect'), {
