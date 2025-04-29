@@ -1,3 +1,0 @@
-pefile==2023.2.7
-frida>=16.0.1
-ghidra_bridge
