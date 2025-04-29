@@ -27,7 +27,7 @@ class PEFileViewer:
                 # 定位到起始地址
                 f.seek(start_addr)
                 # 计算要读取的长度
-                length = end_addr - start_addr + 1
+                length = end_addr - start_addr
                 # 读取指定范围的数据
                 data = f.read(length)
 
@@ -39,15 +39,3 @@ class PEFileViewer:
 
         except IOError as e:
             raise IOError(f"文件读取失败: {e}")
-
-    def view_hex_range_formatted(self, start_addr, end_addr):
-        """
-        查看指定地址范围的十六进制内容，并返回格式化的字符串
-        :param start_addr: 开始地址(十进制)
-        :param end_addr: 结束地址(十进制)
-        :return: 格式化的十六进制字符串(如 "b'\\x7C\\x00'")
-        """
-        data = self.view_hex_range(start_addr, end_addr)
-        # 将bytes转换为可显示的转义字符串
-        escaped_bytes = ''.join(f'\\x{byte:02X}' for byte in data)
-        return f"b'{escaped_bytes}'"
