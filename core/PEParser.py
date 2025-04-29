@@ -1,6 +1,6 @@
 import re
 
-from ds.Info import Info
+from model.Info import Info
 
 
 class PEParser:
