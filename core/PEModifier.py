@@ -34,7 +34,7 @@ class PEModifier:
                 return
 
             # 替换数据
-            data[start_addr:end_addr + 1] = bytes_provided
+            data[start_addr:end_addr] = bytes_provided
 
             # 写入新文件
             with open(self.output, 'wb') as f:
