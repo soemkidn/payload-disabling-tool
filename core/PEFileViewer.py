@@ -11,6 +11,7 @@ class PEFileViewer:
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"文件 {file_path} 不存在")
 
+    # 查看指定地址范围的十六进制内容
     def view_hex_range(self, start_addr, end_addr):
         """
         查看指定地址范围的十六进制内容

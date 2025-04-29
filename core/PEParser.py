@@ -9,6 +9,7 @@ class PEParser:
         self.ips = []
         self.ports = []
 
+    # 从文件中解析出ip和端口内容
     def extract_config(self):
         with open(self.file_path, 'rb') as f:
             data = f.read()
