@@ -4,18 +4,9 @@ class PEModifier:
         self.input = input_file
         self.output = output_file
 
+    # 读取PE文件并且将IP地址和端口内容修改
     def modify_pe_hex_string(self, start_addr, end_addr, new_hex_string):
-        """
-        修改PE文件中指定地址范围的十六进制字符串
 
-        参数:
-            input_file: 输入PE文件路径
-            output_file: 输出PE文件路径
-            start_addr: 起始地址(十进制)
-            end_addr: 结束地址(十进制)
-            new_hex_string: 新的十六进制字符串(不带空格，如"DEADBEEF")
-        """
-        # 将新十六进制字符串转换为字节
         try:
             new_bytes = bytes.fromhex(new_hex_string)
         except ValueError as e:

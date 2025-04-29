@@ -5,7 +5,7 @@ def main(input_file, output_file):
     parser = PEParser(input_file)
     parser.extract_config()
     for ip in parser.ips:
-        print(ip.toString())
+        print(ip.start)
     for port in parser.ports:
         print(port.toString())
 
